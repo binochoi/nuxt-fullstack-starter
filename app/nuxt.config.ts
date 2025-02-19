@@ -3,6 +3,7 @@ import { fileURLToPath } from 'url';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  ssr: true,
   runtimeConfig: config(process.env),
   imports: {
     dirs: [
@@ -45,7 +46,6 @@ export default defineNuxtConfig({
   },
   srcDir: "src",
   serverDir: "../server",
-  ssr: true,
 
   build: {
     transpile: ['trpc-nuxt', 'primevue'],
