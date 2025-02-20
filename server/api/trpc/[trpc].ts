@@ -7,10 +7,8 @@ export type AppRouter = typeof appRouter;
 export default createNuxtApiHandler({
     router: appRouter,
     async createContext(event) {
-        const accessToken = getCookie(event, 'access_token');
         return {
             event,
-            user: accessToken || '',
         };
     },
 });
