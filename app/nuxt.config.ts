@@ -44,8 +44,8 @@ export default defineNuxtConfig({
       id: 'app',
     },
   },
-  srcDir: "src",
-  serverDir: "../server",
+  srcDir: "src/",
+  serverDir: "../server/",
 
   build: {
     transpile: ['trpc-nuxt', 'primevue'],
@@ -62,6 +62,7 @@ export default defineNuxtConfig({
     rollupConfig: {
       external: ['cloudflare:sockets'],
     },
+    logLevel: 4,
   },
   typescript: {
     tsConfig: {

@@ -36,6 +36,7 @@ export default tslint.config(
   {
     rules: {
       ...binoVue.rules,
+      'no-undef': 'off',
     },
   },
 );

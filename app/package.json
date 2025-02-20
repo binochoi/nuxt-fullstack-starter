@@ -5,8 +5,8 @@
   "scripts": {
     "postinstall": "nuxt prepare",
     "prepare": "nuxt prepare",
-    "build": "nuxt build",
-    "dev": "nuxt dev",
+    "build": "env-cmd nuxt build",
+    "dev": "env-cmd nuxt dev",
     "generate": "nuxt generate",
     "preview": "run-s build preview.only",
     "preview.only": "env-cmd wrangler dev --port=3000 --local-protocol https --https-key-path ./localhost-key.pem --https-cert-path ./localhost.pem",
@@ -26,6 +26,7 @@
     "nitro-cloudflare-dev": "^0.2.1",
     "nuxt": "^3.15.4",
     "pinia": "^3.0.1",
+    "superjson": "^2.2.2",
     "tailwindcss": "^3.4.3",
     "tailwindcss-animate": "^1.0.7",
     "trpc-nuxt": "^0.10.22",
@@ -33,7 +34,6 @@
     "vue-router": "latest",
     "wrangler": "^3.109.2"
   },
-  "packageManager": "pnpm@9.6.0+sha512.38dc6fba8dba35b39340b9700112c2fe1e12f10b17134715a4aa98ccf7bb035e76fd981cf0bb384dfa98f8d6af5481c2bef2f4266a24bfa20c34eb7147ce0b5e",
   "devDependencies": {
     "env-cmd": "^10.1.0"
   }

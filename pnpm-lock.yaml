@@ -110,6 +110,9 @@ importers:
       '@trpc/server':
         specifier: ^10.45.2
         version: 10.45.2
+      superjson:
+        specifier: ^2.2.2
+        version: 2.2.2
       trpc-nuxt:
         specifier: ^0.10.22
         version: 0.10.22(@trpc/client@10.45.2(@trpc/server@10.45.2))(@trpc/server@10.45.2)(ofetch@1.4.1)
