@@ -31,10 +31,10 @@
     "tailwindcss-animate": "^1.0.7",
     "trpc-nuxt": "^0.10.22",
     "vue": "latest",
-    "vue-router": "latest",
-    "wrangler": "^3.109.2"
+    "vue-router": "latest"
   },
   "devDependencies": {
-    "env-cmd": "^10.1.0"
+    "env-cmd": "^10.1.0",
+    "wrangler": "^3.109.2"
   }
 }

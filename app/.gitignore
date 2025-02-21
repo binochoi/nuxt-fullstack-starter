@@ -24,4 +24,6 @@ logs
 # Local env files
 .env
 .env.*
+.dev.vars
+.dev.vars
 !.env.example

@@ -80,6 +80,9 @@ importers:
       pinia:
         specifier: ^3.0.1
         version: 3.0.1(typescript@5.6.3)(vue@3.5.13(typescript@5.6.3))
+      superjson:
+        specifier: ^2.2.2
+        version: 2.2.2
       tailwindcss:
         specifier: ^3.4.3
         version: 3.4.17
@@ -95,13 +98,13 @@ importers:
       vue-router:
         specifier: latest
         version: 4.5.0(vue@3.5.13(typescript@5.6.3))
-      wrangler:
-        specifier: ^3.109.2
-        version: 3.109.2
     devDependencies:
       env-cmd:
         specifier: ^10.1.0
         version: 10.1.0
+      wrangler:
+        specifier: ^3.109.2
+        version: 3.109.2
 
   common: {}
 

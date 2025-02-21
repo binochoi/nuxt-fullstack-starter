@@ -62,11 +62,15 @@ export default defineNuxtConfig({
     rollupConfig: {
       external: ['cloudflare:sockets'],
     },
+    cloudflareDev: {
+      configPath: './wrangler.toml',
+    },
     logLevel: 4,
   },
   typescript: {
     tsConfig: {
       compilerOptions: {
+        strict: true,
         verbatimModuleSyntax: false,
         moduleResolution: 'bundler',
       },
