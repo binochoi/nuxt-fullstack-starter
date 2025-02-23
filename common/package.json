@@ -1,3 +1,11 @@
 {
-    "name": "@app/common"
+    "name": "@app/common",
+    "dependencies": {
+        "better-auth": "^1.1.19",
+        "drizzle-orm": "^0.39.3",
+        "postgres": "^3.4.5"
+    },
+    "devDependencies": {
+        "@types/node": "^22.13.5"
+    }
 }

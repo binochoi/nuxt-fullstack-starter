@@ -1,6 +1,6 @@
 packages:
   - "app"
+  - "app/server"
   - "common"
-  - "server"
+  - "microservices/*"
   - "packages/*"
-  - "layers/*"

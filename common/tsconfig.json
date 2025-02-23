@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "strict": true,
+    "paths": {
+      "@app/common/*": [
+        "./*"
+      ],
+    },
+    "baseUrl": ".",
+  }
+}

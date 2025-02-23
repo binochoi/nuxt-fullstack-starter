@@ -3,15 +3,15 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "postinstall": "nuxt prepare",
-    "prepare": "nuxt prepare",
-    "build": "env-cmd nuxt build",
-    "dev": "env-cmd nuxt dev",
+    "postinstall": "run-s prepare",
+    "prepare": "env-cmd -f .dev.vars nuxt prepare",
+    "build": "env-cmd -f .dev.vars nuxt build",
+    "dev": "env-cmd -f .dev.vars nuxt dev",
     "generate": "nuxt generate",
     "preview": "run-s build preview.only",
-    "preview.only": "env-cmd wrangler dev --port=3000 --local-protocol https --https-key-path ./localhost-key.pem --https-cert-path ./localhost.pem",
+    "preview.only": "env-cmd -f .dev.vars wrangler dev --port=3300 --local-protocol https --https-key-path ./localhost-key.pem --https-cert-path ./localhost.pem",
     "deploy": "run-s build deploy.only",
-    "deploy.only": "env-cmd wrangler deploy"
+    "deploy.only": "env-cmd -f .dev.vars wrangler deploy"
   },
   "dependencies": {
     "@iconify/vue": "^4.3.0",
@@ -26,6 +26,7 @@
     "nitro-cloudflare-dev": "^0.2.1",
     "nuxt": "^3.15.4",
     "pinia": "^3.0.1",
+    "sass": "^1.85.0",
     "superjson": "^2.2.2",
     "tailwindcss": "^3.4.3",
     "tailwindcss-animate": "^1.0.7",

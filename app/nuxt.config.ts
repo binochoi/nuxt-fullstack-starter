@@ -1,10 +1,10 @@
-import config from '@app/server/config';
+import config from './server/config';
 import { fileURLToPath } from 'url';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   ssr: true,
-  runtimeConfig: config(process.env),
+  runtimeConfig: config,
   imports: {
     dirs: [
       './types/*.d.ts',
@@ -25,9 +25,12 @@ export default defineNuxtConfig({
   },
   alias: {
     'src': fileURLToPath(new URL('./src', import.meta.url)),
-    '@app/server': fileURLToPath(new URL('../server', import.meta.url)),
+    'server': fileURLToPath(new URL('./server', import.meta.url)),
     '@app/common': fileURLToPath(new URL('../common', import.meta.url)),
   },
+  css: [
+    'src/assets/styles/main.scss',
+  ],
   devServer: {
     port: Number(process.env.PORT),
     https: {
@@ -45,10 +48,10 @@ export default defineNuxtConfig({
     },
   },
   srcDir: "src/",
-  serverDir: "../server/",
+  serverDir: "server/",
 
   build: {
-    transpile: ['trpc-nuxt', 'primevue'],
+    transpile: ['trpc-nuxt'],
   },
   experimental: {
     typedPages: true,
@@ -58,7 +61,7 @@ export default defineNuxtConfig({
   future: { compatibilityVersion: 4 },
   nitro: {
     preset: 'cloudflare_module',
-    minify: false,
+    minify: true,
     rollupConfig: {
       external: ['cloudflare:sockets'],
     },

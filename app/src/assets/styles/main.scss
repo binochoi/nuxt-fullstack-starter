@@ -1,0 +1,8 @@
+@use 'mixins/generate-color-palette' as *;
+
+:root {
+    @include generate-color-palette('primary', (210.71, 54.04));
+    @include generate-color-palette('secondary', (210.78, 52.04));
+    @include generate-color-palette('tertiary', (195, 88));
+    @include generate-color-palette('quaternary', (166.15, 73.58));
+}
