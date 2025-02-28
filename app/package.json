@@ -10,7 +10,14 @@
     "dev": "env-cmd -f .dev.vars nuxt dev",
     "generate": "nuxt generate",
     "preview": "run-s build preview.only",
-    "preview.only": "env-cmd -f .dev.vars wrangler dev --port=3300 --local-protocol https --https-key-path ./localhost-key.pem --https-cert-path ./localhost.pem",
+    "preview.only": "env-cmd -f .dev.vars wrangler dev --port=3000",
+    "db:generate": "run-s db:generate.*",
+    "db:generate.rm": "rimraf .cache/.migrations",
+    "db:generate.better-auth": "env-cmd -f .dev.vars npx @better-auth/cli generate --config ./server/auth.generator.ts --output ../common/schema/better-auth.schema.ts -y",
+    "db:generate.drizzle": "env-cmd -f .dev.vars drizzle-kit generate --config=./drizzle.config.ts",
+    "db:migrate": "run-s db:generate db:migrate.*",
+    "db:migrate.only": "env-cmd -f .dev.vars drizzle-kit migrate --config=./drizzle.config.ts",
+    "db:migrate.push": "env-cmd -f .dev.vars drizzle-kit push",
     "deploy": "run-s build deploy.only",
     "deploy.only": "env-cmd -f .dev.vars wrangler deploy"
   },
@@ -24,6 +31,8 @@
     "@trpc/client": "^10.45.2",
     "@vueuse/core": "^12.7.0",
     "@vueuse/nuxt": "^12.7.0",
+    "better-auth": "^1.1.21",
+    "drizzle-orm": "^0.40.0",
     "nitro-cloudflare-dev": "^0.2.1",
     "nuxt": "^3.15.4",
     "pinia": "^3.0.1",
@@ -36,7 +45,9 @@
     "vue-router": "latest"
   },
   "devDependencies": {
+    "drizzle-kit": "^0.30.5",
     "env-cmd": "^10.1.0",
+    "rimraf": "^6.0.1",
     "wrangler": "^3.109.2"
   }
 }
