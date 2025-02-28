@@ -32,11 +32,11 @@ export default defineNuxtConfig({
     'src/assets/styles/main.scss',
   ],
   devServer: {
-    port: Number(process.env.PORT),
-    https: {
-      cert: './localhost.pem',
-      key: './localhost-key.pem',
-    },
+    port: Number(config.port),
+    // https: {
+    //   cert: './localhost.pem',
+    //   key: './localhost-key.pem',
+    // },
   },
   app: {
     head: {
