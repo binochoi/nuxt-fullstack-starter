@@ -12,7 +12,7 @@ const port = assert('PORT');
 const runtime = (process.env.SERVER_RUNTIME || 'monolithic') as Runtime;
 const isDev = env === 'dev';
 const isProd = env === 'prod';
-const config = {
+export const useBuildtimeConfig = () => ({
     env,
     port,
     runtime,
@@ -38,6 +38,5 @@ const config = {
             }
         }
     },
-}
-export type Config = typeof config;
-export default config;
+})
+export type Config = ReturnType<typeof useBuildtimeConfig>;

@@ -1,6 +1,7 @@
-import config from './server/config';
+import { useBuildtimeConfig } from './server/config';
 import { fileURLToPath } from 'url';
 
+const config = useBuildtimeConfig();
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   ssr: true,
