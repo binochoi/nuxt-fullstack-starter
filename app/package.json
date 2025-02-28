@@ -4,8 +4,8 @@
   "type": "module",
   "scripts": {
     "postinstall": "run-s prepare.*",
+    "prepare.cp-env": "[ -f .dev.vars ] || cp .dev.vars.example .dev.vars",
     "prepare.nuxt": "env-cmd -f .dev.vars nuxt prepare",
-    "prepare.cp-env": "copyfiles -s .dev.vars.example .dev.vars",
     "build": "env-cmd -f .dev.vars nuxt build",
     "dev": "env-cmd -f .dev.vars nuxt dev",
     "generate": "nuxt generate",
@@ -36,7 +36,6 @@
     "vue-router": "latest"
   },
   "devDependencies": {
-    "copyfiles": "^2.4.1",
     "env-cmd": "^10.1.0",
     "wrangler": "^3.109.2"
   }
