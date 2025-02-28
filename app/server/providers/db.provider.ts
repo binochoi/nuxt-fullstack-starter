@@ -1,6 +1,6 @@
-import DB from '@app/common/lib/db';
+import _DB from '@app/common/lib/db';
 
-export const db = () => {
+export const DB = () => {
     const config = useRuntimeConfig();
-    return DB(config.db.connectionString);
+    return _DB(config.db.connectionString);
 }
