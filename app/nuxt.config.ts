@@ -40,6 +40,7 @@ export default defineNuxtConfig({
     // },
   },
   app: {
+    buildAssetsDir: 'public-assets',
     head: {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no',
