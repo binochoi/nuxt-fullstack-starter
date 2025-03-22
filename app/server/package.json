@@ -2,10 +2,8 @@
     "name": "@server/core",
     "main": "./exports.ts",
     "dependencies": {
-        "@trpc/server": "^10.45.2",
         "better-auth": "^1.1.19",
         "postgres": "^3.4.5",
-        "superjson": "^2.2.2",
-        "trpc-nuxt": "^0.10.22"
+        "superjson": "^2.2.2"
     }
 }

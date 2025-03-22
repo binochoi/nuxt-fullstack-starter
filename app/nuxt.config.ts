@@ -50,10 +50,6 @@ export default defineNuxtConfig({
   },
   srcDir: "src/",
   serverDir: "server/",
-
-  build: {
-    transpile: ['trpc-nuxt'],
-  },
   experimental: {
     typedPages: true,
   },
