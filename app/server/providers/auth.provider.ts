@@ -1,4 +1,4 @@
-import _Auth from '@app/common/lib/auth';
+import _Auth from '~~/server/lib/auth';
 
 export const Auth = () => {
     const config = useRuntimeConfig();

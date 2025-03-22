@@ -27,7 +27,6 @@ export default defineNuxtConfig({
   alias: {
     'src': fileURLToPath(new URL('./src', import.meta.url)),
     'server': fileURLToPath(new URL('./server', import.meta.url)),
-    '@app/common': fileURLToPath(new URL('../common', import.meta.url)),
   },
   css: [
     'src/assets/styles/main.scss',

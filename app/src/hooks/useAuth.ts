@@ -1,7 +1,7 @@
 import { createAuthClient } from 'better-auth/vue';
 import type { RouteLocationRaw } from 'vue-router';
 import { adminClient, genericOAuthClient, inferAdditionalFields } from 'better-auth/client/plugins';
-import Auth from '@app/common/lib/auth';
+import Auth from '~~/server/lib/auth';
 
 export default () => {
   const headers = import.meta.server ? useRequestHeaders() : undefined;

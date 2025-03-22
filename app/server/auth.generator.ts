@@ -1,5 +1,5 @@
 import { useBuildtimeConfig } from './config';
-import Auth from '@app/common/lib/auth';
+import Auth from '~~/server/lib/auth';
 
 const config = useBuildtimeConfig();
 const auth = Auth({
