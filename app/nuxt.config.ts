@@ -1,5 +1,7 @@
+
 import { useBuildtimeConfig } from './server/config';
 import { fileURLToPath } from 'url';
+import rpc from 'nitro-rpc-definition';
 
 const config = useBuildtimeConfig();
 // https://nuxt.com/docs/api/configuration/nuxt-config
@@ -66,6 +68,7 @@ export default defineNuxtConfig({
       configPath: './wrangler.toml',
     },
     logLevel: 4,
+    modules: [rpc()],
   },
   typescript: {
     tsConfig: {

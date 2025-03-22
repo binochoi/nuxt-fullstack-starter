@@ -2,7 +2,7 @@ import { betterAuth } from 'better-auth';
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
 import { genericOAuth } from 'better-auth/plugins';
 import db from './db';
-import * as schema from '../schema';
+import * as schema from '../database/schema';
 type Options = {
     isDev?: boolean,
     baseURL: string,

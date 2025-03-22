@@ -1,7 +1,9 @@
 <script setup lang="ts">
+const { api } = useRPC();
+const { data } = useAsyncData(async () => api.health.$get());
 </script>
 <template>
   <div>
-    hello world !
+    {{ data }}
   </div>
 </template>
