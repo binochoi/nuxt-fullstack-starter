@@ -65,7 +65,7 @@ export default defineNuxtConfig({
     preset: 'cloudflare_module',
     minify: true,
     rollupConfig: {
-      external: ['cloudflare:sockets'],
+      external: ['cloudflare:sockets', '@aws-sdk/client-s3'],
     },
     cloudflareDev: {
       configPath: './wrangler.toml',
