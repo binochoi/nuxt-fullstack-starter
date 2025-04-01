@@ -4,6 +4,8 @@
     $lightnesses: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900;
     @each $l in $lightnesses {
         $per: #{math.percentage(math.div(1000 - $l, 1000))};
-        --color-#{$name}-#{$l}: #{$hs}, #{$per};
+        --color-#{$name}#{-$l}: #{$hs}, #{$per};
     }
+        $per: #{math.percentage(math.div(1000 - 500, 1000))};
+        --color-#{$name}: #{$hs}, #{$per};
   }

@@ -6,3 +6,15 @@
     @include generate-color-palette('tertiary', (195, 88));
     @include generate-color-palette('quaternary', (166.15, 73.58));
 }
+
+
+.default-enter-active,
+.default-leave-active {
+    transition: opacity 0.12s ease, transform 0.12s ease;
+}
+
+.default-enter-from,
+.default-leave-to {
+    opacity: 0;
+    transform: translate(0, 5px);
+}

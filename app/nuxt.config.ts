@@ -46,6 +46,10 @@ export default defineNuxtConfig({
     // },
   },
   app: {
+    pageTransition: {
+      name: 'default',
+      mode: 'out-in',
+    },
     buildAssetsDir: 'public-assets',
     head: {
       charset: 'utf-8',
