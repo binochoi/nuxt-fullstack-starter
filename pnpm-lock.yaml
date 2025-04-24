@@ -75,8 +75,8 @@ importers:
         specifier: ^0.2.1
         version: 0.2.1
       nitro-rpc-definition:
-        specifier: ^0.0.4
-        version: 0.0.4(defu@6.1.4)(nitropack@2.11.7(better-sqlite3@11.8.1)(drizzle-orm@0.40.0(@prisma/client@5.22.0)(@types/better-sqlite3@7.6.12)(better-sqlite3@11.8.1)(gel@2.0.0)(kysely@0.27.5)(postgres@3.4.5))(typescript@5.6.3))(ofetch@1.4.1)
+        specifier: ^0.1.5
+        version: 0.1.6(api-to-rpc@0.0.7(ofetch@1.4.1))(defu@6.1.4)(nitropack@2.11.7(better-sqlite3@11.8.1)(drizzle-orm@0.40.0(@prisma/client@5.22.0)(@types/better-sqlite3@7.6.12)(better-sqlite3@11.8.1)(gel@2.0.0)(kysely@0.27.5)(postgres@3.4.5))(typescript@5.6.3))(ofetch@1.4.1)
       nuxt:
         specifier: ^3.15.4
         version: 3.15.4(@parcel/watcher@2.5.1)(@types/node@22.13.5)(better-sqlite3@11.8.1)(db0@0.2.4(better-sqlite3@11.8.1)(drizzle-orm@0.40.0(@prisma/client@5.22.0)(@types/better-sqlite3@7.6.12)(better-sqlite3@11.8.1)(gel@2.0.0)(kysely@0.27.5)(postgres@3.4.5)))(drizzle-orm@0.40.0(@prisma/client@5.22.0)(@types/better-sqlite3@7.6.12)(better-sqlite3@11.8.1)(gel@2.0.0)(kysely@0.27.5)(postgres@3.4.5))(eslint@9.0.0)(ioredis@5.5.0)(lightningcss@1.29.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.34.8)(sass@1.85.0)(terser@5.39.0)(typescript@5.6.3)(vite@6.1.1(@types/node@22.13.5)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.0))(yaml@2.7.0)
@@ -4085,9 +4085,10 @@ packages:
   nitro-cloudflare-dev@0.2.1:
     resolution: {integrity: sha512-zHAN21dp+As0ldkAr5tWTop/I721j7MssZG6qb7a7EMorFwdRIhyTUwltr2L6v4qT4209S4eb2S9rszP1fxS7A==}
 
-  nitro-rpc-definition@0.0.4:
-    resolution: {integrity: sha512-zvtI2oIyQ9gwtR0zpKT7prMQJedg5rEU1Wgq2dxSzBVH7FyWIlSLPrEDYaR6xUW0v3NRS28YQnu/5d0akU8WbA==}
+  nitro-rpc-definition@0.1.6:
+    resolution: {integrity: sha512-eM7bmkBrGPzqHd8OefMYc5x3q9lvncdjL1RErucZy1clWt/EFP8cFx2yN0VHd5q5/lZzgP7ejn3ZD01DuC4kTg==}
     peerDependencies:
+      api-to-rpc: latest
       defu: ^6.1.4
       nitropack: ^2.11.6
       ofetch: ^1.4.1
@@ -9945,8 +9946,9 @@ snapshots:
       mlly: 1.7.4
       pkg-types: 1.3.1
 
-  nitro-rpc-definition@0.0.4(defu@6.1.4)(nitropack@2.11.7(better-sqlite3@11.8.1)(drizzle-orm@0.40.0(@prisma/client@5.22.0)(@types/better-sqlite3@7.6.12)(better-sqlite3@11.8.1)(gel@2.0.0)(kysely@0.27.5)(postgres@3.4.5))(typescript@5.6.3))(ofetch@1.4.1):
+  nitro-rpc-definition@0.1.6(api-to-rpc@0.0.7(ofetch@1.4.1))(defu@6.1.4)(nitropack@2.11.7(better-sqlite3@11.8.1)(drizzle-orm@0.40.0(@prisma/client@5.22.0)(@types/better-sqlite3@7.6.12)(better-sqlite3@11.8.1)(gel@2.0.0)(kysely@0.27.5)(postgres@3.4.5))(typescript@5.6.3))(ofetch@1.4.1):
     dependencies:
+      api-to-rpc: 0.0.7(ofetch@1.4.1)
       defu: 6.1.4
       nitropack: 2.11.7(better-sqlite3@11.8.1)(drizzle-orm@0.40.0(@prisma/client@5.22.0)(@types/better-sqlite3@7.6.12)(better-sqlite3@11.8.1)(gel@2.0.0)(kysely@0.27.5)(postgres@3.4.5))(typescript@5.6.3)
       ofetch: 1.4.1

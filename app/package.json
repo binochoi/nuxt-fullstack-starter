@@ -31,7 +31,7 @@
     "@vueuse/core": "^12.7.0",
     "@vueuse/nuxt": "^12.7.0",
     "api-to-rpc": "^0.0.7",
-    "nitro-rpc-definition": "^0.0.4",
+    "nitro-rpc-definition": "^0.1.5",
     "better-auth": "^1.1.21",
     "drizzle-orm": "^0.40.0",
     "nitro-cloudflare-dev": "^0.2.1",
