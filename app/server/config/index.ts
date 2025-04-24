@@ -7,9 +7,9 @@ const assert = (key: string) => {
     }
     return value;
 }
-const env = (process.env.ENV || 'dev') as 'dev' | 'prod';
-const port = assert('PORT');
-const runtime = (process.env.SERVER_RUNTIME || 'monolithic') as Runtime;
+const env: string = (process.env.ENV || 'dev') as 'dev' | 'prod';
+const port: string = assert('PORT');
+const runtime: string = (process.env.SERVER_RUNTIME || 'monolithic') as Runtime;
 const isDev = env === 'dev';
 const isProd = env === 'prod';
 export const useBuildtimeConfig = () => ({

@@ -1,9 +1,0 @@
-{
-    "name": "@server/core",
-    "main": "./exports.ts",
-    "dependencies": {
-        "better-auth": "^1.1.19",
-        "postgres": "^3.4.5",
-        "superjson": "^2.2.2"
-    }
-}

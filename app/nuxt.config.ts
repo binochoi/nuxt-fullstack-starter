@@ -13,6 +13,13 @@ export default defineNuxtConfig({
     },
   },
   runtimeConfig: config,
+  components: {
+    dirs: [
+      'components/features',
+      'components/layout',
+      'components/ui',
+    ],
+  },
   imports: {
     dirs: [
       './types/*.d.ts',

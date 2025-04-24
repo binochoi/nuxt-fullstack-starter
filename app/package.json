@@ -13,7 +13,7 @@
     "preview.only": "env-cmd -f .dev.vars wrangler dev --port=3000",
     "db:generate": "run-s db:generate.*",
     "db:generate.rm": "rimraf .cache/.migrations",
-    "db:generate.better-auth": "env-cmd -f .dev.vars npx @better-auth/cli generate --config ./server/auth.generator.ts --output ../common/schema/better-auth.schema.ts -y",
+    "db:generate.better-auth": "env-cmd -f .dev.vars npx @better-auth/cli generate --config ./server/auth.generator.ts --output ./server/database/schema/better-auth.schema.ts -y",
     "db:generate.drizzle": "env-cmd -f .dev.vars drizzle-kit generate --config=./drizzle.config.ts",
     "db:migrate": "run-s db:generate db:migrate.*",
     "db:migrate.only": "env-cmd -f .dev.vars drizzle-kit migrate --config=./drizzle.config.ts",
@@ -42,7 +42,8 @@
     "tailwindcss": "^3.4.3",
     "tailwindcss-animate": "^1.0.7",
     "vue": "latest",
-    "vue-router": "latest"
+    "vue-router": "latest",
+    "postgres": "^3.4.5"
   },
   "devDependencies": {
     "drizzle-kit": "^0.30.5",

@@ -1,4 +1,4 @@
-import _DB from '~~/server/lib/db';
+import _DB from 'server/lib/db';
 
 export const DB = () => {
     const config = useRuntimeConfig();
