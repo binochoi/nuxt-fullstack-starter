@@ -37,6 +37,7 @@ export default tslint.config(
     rules: {
       ...binoVue.rules,
       'no-undef': 'off',
+      'vue/no-undef-components': 'off',
     },
   },
 );
