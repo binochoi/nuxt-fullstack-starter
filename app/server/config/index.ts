@@ -18,7 +18,7 @@ export const useBuildtimeConfig = () => ({
     runtime,
     isDev,
     isProd,
-    baseURL: isDev ? 'http://localhost:3000' : 'https://example.com',
+    baseURL: isDev ? `http://localhost:${port}` : 'https://example.com',
     db: {
         connectionString: process.env.DB_CONNECTION_STRING || '',
     },

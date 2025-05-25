@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const { api } = useRPC();
-const { data } = useAsyncData(async () => api.health.$get());
+const { data } = useAsyncData(async () => await api.health.$get());
 </script>
 <template>
   <div>
