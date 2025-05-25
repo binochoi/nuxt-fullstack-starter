@@ -1,5 +1,6 @@
 {
     "scripts": {
+        "dev": "pnpm --filter fullstack dev",
         "lint": "run-s lint.*",
         "lint.only": "eslint \"**/*.{ts,vue}\"",
         "lint.format": "npx prettier . --check"
