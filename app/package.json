@@ -22,6 +22,9 @@
     "deploy.only": "dotenv -e .dev.vars -- wrangler deploy"
   },
   "dependencies": {
+    "@primeuix/themes": "^1.1.1",
+    "@primevue/forms": "^4.3.4",
+    "primevue": "^4.3.4",
     "@iconify/vue": "^4.3.0",
     "@ionic/vue": "^8.4.3",
     "@nuxtjs/tailwindcss": "^6.13.1",
@@ -45,6 +48,7 @@
     "vue": "^3.5.13"
   },
   "devDependencies": {
+    "@primevue/nuxt-module": "^4.3.4",
     "drizzle-kit": "^0.30.5",
     "env-cmd": "^10.1.0",
     "rimraf": "^6.0.1",
