@@ -22,16 +22,16 @@
     "deploy.only": "dotenv -e .dev.vars -- wrangler deploy"
   },
   "dependencies": {
-    "@primeuix/themes": "^1.1.1",
-    "@primevue/forms": "^4.3.4",
-    "primevue": "^4.3.4",
     "@iconify/vue": "^4.3.0",
     "@ionic/vue": "^8.4.3",
     "@nuxtjs/tailwindcss": "^6.13.1",
     "@pinia/colada": "^0.16.1",
     "@pinia/nuxt": "^0.11.0",
+    "@primeuix/themes": "^1.1.1",
+    "@primevue/forms": "^4.3.4",
     "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/typography": "^0.5.16",
+    "@vant/nuxt": "1.0.7",
     "@vueuse/core": "^12.7.0",
     "@vueuse/nuxt": "^12.7.0",
     "api-to-rpc": "^0.0.13",
@@ -42,9 +42,11 @@
     "nuxt": "^3.17.4",
     "pinia": "^3.0.2",
     "postgres": "^3.4.5",
+    "primevue": "^4.3.4",
     "sass": "^1.85.0",
     "tailwindcss": "^3.4.3",
     "tailwindcss-animate": "^1.0.7",
+    "vant": ">=4",
     "vue": "^3.5.13"
   },
   "devDependencies": {

@@ -1,4 +1,3 @@
-
 import { useBuildtimeConfig } from './server/config';
 import { fileURLToPath } from 'url';
 import rpc from 'nitro-rpc-definition';
@@ -43,6 +42,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     'nitro-cloudflare-dev',
     '@primevue/nuxt-module',
+    '@vant/nuxt'
   ],
   primevue: {
     components: {
