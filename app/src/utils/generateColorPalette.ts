@@ -7,8 +7,8 @@
  *  900: '--color-primary-900',
  * }
  */
-export const generateColorPalette = (prefix: string) => {
-    const satr = (l: number | string) => `hsla(var(${prefix}${l}), <alpha-value>)`;
+export const generateColorPalette = (prefix: string, alpha: string = '<alpha-value>') => {
+    const satr = (l: number | string) => `hsla(var(${prefix}${l}), ${alpha})`;
     const grades = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950];
     return Object.fromEntries([
         ['DEFAULT', satr('-400')],
