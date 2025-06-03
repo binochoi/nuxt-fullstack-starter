@@ -1,8 +1,9 @@
 type Runtime = 'monolithic';
 
 const assert = (key: string) => {
-    const value = process.env[key];
-    if (value === undefined) {
+    const value = process.env[key]!;
+    const isAssertMode = process.env.ASSERT_MODE === 'true';
+    if (isAssertMode && value === undefined) {
         throw new Error(`environment variable ${key} is undefined`);
     }
     return value;
