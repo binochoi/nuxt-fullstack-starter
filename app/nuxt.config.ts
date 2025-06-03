@@ -2,7 +2,15 @@
 import { useBuildtimeConfig } from './server/config';
 import { fileURLToPath } from 'url';
 import rpc from 'nitro-rpc-definition';
+import { definePreset } from '@primeuix/themes';
+import AuraTheme from '@primeuix/themes/aura';
+import { generateColorPalette } from './src/utils/generateColorPalette';
 
+const primePreset = definePreset(AuraTheme, {
+  semantic: {
+    primary: generateColorPalette('--color-primary', '1'),
+  }
+});
 const config = useBuildtimeConfig();
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -34,7 +42,22 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@vueuse/nuxt',
     'nitro-cloudflare-dev',
+    '@primevue/nuxt-module',
   ],
+  primevue: {
+    components: {
+      prefix: 'Prime',
+    },
+    options: {
+      ripple: true,
+      theme: {
+        preset: primePreset,
+        options: {
+          darkModeSelector: '.darkmode',
+        },
+      },
+    },
+  },
   pinia: {
     storesDirs: ['./app/stores/**'],
   },
