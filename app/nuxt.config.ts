@@ -1,5 +1,5 @@
 import { useBuildtimeConfig } from './server/config';
-import { fileURLToPath } from 'url';
+import { fileURLToPath } from 'node:url';
 import rpc from 'nitro-rpc-definition';
 import { definePreset } from '@primeuix/themes';
 import AuraTheme from '@primeuix/themes/aura';
@@ -62,8 +62,8 @@ export default defineNuxtConfig({
     storesDirs: ['./app/stores/**'],
   },
   alias: {
-    'src': fileURLToPath(new URL('./src', import.meta.url)),
-    'server': fileURLToPath(new URL('./server', import.meta.url)),
+    'src': fileURLToPath(new URL('src', import.meta.url)),
+    'server': fileURLToPath(new URL('server', import.meta.url)),
   },
   css: [
     'src/assets/styles/main.scss',
@@ -82,7 +82,7 @@ export default defineNuxtConfig({
     },
     buildAssetsDir: 'public-assets',
     head: {
-      charset: 'utf-8',
+      charset: 'utf8',
       viewport: 'width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no',
     },
     rootAttrs: {
