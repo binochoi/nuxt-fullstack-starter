@@ -44,6 +44,9 @@ export default defineNuxtConfig({
     '@primevue/nuxt-module',
     '@vant/nuxt'
   ],
+  vant: {
+    defaultLocale: 'en-US',
+  },
   primevue: {
     components: {
       prefix: 'Prime',
