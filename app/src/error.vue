@@ -31,12 +31,10 @@ const errorDescription = computed(() => {
 </script>
 
 <template>
-  <main
-    :class="[
-      'grid min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8',
-      'animate-in fade-in slide-in-from-top-3 duration-500 ease-out fill-mode-backwards'
-    ]"
-  >
+  <main :class="[
+    'grid min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8',
+    'animate-in fade-in slide-in-from-top-3 duration-500 ease-out fill-mode-backwards'
+  ]">
     <div class="text-center">
       <p class="text-base font-semibold text-primary-600">
         {{ error?.statusCode || 'Error' }}
@@ -51,14 +49,10 @@ const errorDescription = computed(() => {
         <div class="mt-10 flex items-center justify-center gap-x-6">
           <button
             class="rounded-md bg-primary-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-primary-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
-            @click="$router.replace('/')"
-          >
+            @click="$router.replace('/')">
             홈으로 돌아가기
           </button>
-          <button
-            class="text-sm font-semibold text-gray-900"
-            @click="$router.back()"
-          >
+          <button class="text-sm font-semibold text-gray-900" @click="$router.back()">
             이전 페이지 <span aria-hidden="true">&rarr;</span>
           </button>
         </div>
