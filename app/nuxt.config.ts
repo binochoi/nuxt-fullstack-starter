@@ -70,10 +70,10 @@ export default defineNuxtConfig({
   ],
   devServer: {
     port: Number(config.port),
-    // https: {
-    //   cert: './localhost.pem',
-    //   key: './localhost-key.pem',
-    // },
+    https: {
+      cert: './localhost.pem',
+      key: './localhost-key.pem',
+    },
   },
   app: {
     pageTransition: {
