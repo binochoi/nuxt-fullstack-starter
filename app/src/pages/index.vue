@@ -4,6 +4,7 @@ const { data } = useAsyncData(async () => await api.health.$get());
 </script>
 <template>
   <div>
+    z
     {{ data }}
   </div>
 </template>
