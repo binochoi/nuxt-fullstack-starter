@@ -82,6 +82,7 @@ export default defineNuxtConfig({
     pageTransition: {
       name: 'default',
       mode: 'out-in',
+      duration: 120,
     },
     buildAssetsDir: 'public-assets',
     head: {
