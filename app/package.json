@@ -7,6 +7,8 @@
     "prepare.cp-env": "[ -f .dev.vars ] || cp .dev.vars.example .dev.vars",
     "prepare.nuxt": "dotenv -e .dev.vars -- nuxt prepare",
     "build": "dotenv -e .dev.vars -- nuxt build",
+    "typecheck": "run-s prepare.nuxt typecheck.only",
+    "typecheck.only": "dotenv -e .dev.vars -- nuxt typecheck --cwd=src --logLevel=info",
     "dev": "dotenv -e .dev.vars -- nuxt dev",
     "generate": "nuxt generate",
     "preview": "run-s preview.*",

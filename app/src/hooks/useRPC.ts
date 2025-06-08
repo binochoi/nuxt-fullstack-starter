@@ -1,4 +1,6 @@
 import rpc from 'api-to-rpc';
+
+/** @ts-ignore */
 import type { API } from '~~/.nuxt/.rpc-definition';
 export const useRPC = () => {
     const config = useRuntimeConfig();
