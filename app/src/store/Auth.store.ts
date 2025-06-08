@@ -24,17 +24,16 @@ const useAuthFetcher = (client: AuthClient) => {
     if (fetchStatus.value === 'fetching' || fetchStatus.value === 'fetched') {
       return;
     }
-    const res = await client.useSession();
-    const { data, error, isPending } = res.value;
+    const { data, error, isPending } = await client.useSession(useFetch);
     fetchStatus.value = isPending ? 'fetching' : 'idle';
-    if (error) {
+    if (error.value) {
       fetchStatus.value = 'error';
       return;
     }
     fetchStatus.value = 'fetched';
-    if (data) {
-      session.value = data.session;
-      user.value = data.user;
+    if (data.value) {
+      session.value = data.value.session;
+      user.value = data.value.user;
     }
   }
   return {
@@ -51,9 +50,16 @@ const useAuthFetcher = (client: AuthClient) => {
 }
 export const useAuthStore = defineStore('auth', () => {
   const client = useAuthClient();
-  const fetcher = useAuthFetcher(client);
+  const { user, session, ...fetcher } = useAuthFetcher(client);
   return {
-    client: computed(() => client),
     ...fetcher,
+    client: computed(() => client),
+    user,
+    session,
+    signOut: async () => {
+      await client.signOut();
+      session.value = undefined;
+      user.value = undefined;
+    },
   }
 });

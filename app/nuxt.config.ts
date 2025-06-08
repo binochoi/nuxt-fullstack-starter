@@ -15,7 +15,7 @@ const config = useBuildtimeConfig();
 export default defineNuxtConfig({
   ssr: true,
   routeRules: {
-    '/*': {
+    '/**/*': {
       ssr: false,
       prerender: true,
     },

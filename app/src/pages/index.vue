@@ -20,8 +20,11 @@ const auth = useAuthStore();
     <div v-else>
       <div v-if="auth.user">
         {{ auth.user.name }} 로 로그인
+        <PrimeButton @click="auth.signOut()">
+          로그아웃
+        </PrimeButton>
       </div>
-      <PrimeButton @click="$router.push('/login')">
+      <PrimeButton v-else @click="$router.push('/login')">
         로그인하기
       </PrimeButton>
     </div>
