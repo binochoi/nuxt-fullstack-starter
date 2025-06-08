@@ -23,7 +23,7 @@
     "db:migrate": "run-s db:generate db:migrate.*",
     "db:migrate.only": "dotenv -e .dev.vars -- drizzle-kit migrate --config=./drizzle.config.ts",
     "db:migrate.push": "dotenv -e .dev.vars -- drizzle-kit push",
-    "deploy": "run-s build deploy.only",
+    "deploy": "run-s deploy.*",
     "deploy.build": "dotenv -e .dev.vars -v ENV=prod -- nuxt build",
     "deploy.only": "dotenv -e .dev.vars -- wrangler deploy"
   },
