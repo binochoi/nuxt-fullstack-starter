@@ -69,6 +69,7 @@ export default defineNuxtConfig({
     'server': fileURLToPath(new URL('server', import.meta.url)),
   },
   css: [
+    'vue-final-modal/style.css',
     'src/assets/styles/main.scss',
   ],
   devServer: {
