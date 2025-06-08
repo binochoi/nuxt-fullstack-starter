@@ -3,7 +3,7 @@ import { useBuildtimeConfig } from './server/config';
 
 export default defineConfig({
   dialect: 'postgresql',
-  schema: '../common/schema',
+  schema: './server/database/schema',
   out: './.cache/.migrations',
   breakpoints: true,
   dbCredentials: {
