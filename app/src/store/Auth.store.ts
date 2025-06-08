@@ -24,8 +24,8 @@ const useAuthFetcher = (client: AuthClient) => {
     if (fetchStatus.value === 'fetching' || fetchStatus.value === 'fetched') {
       return;
     }
-    const { data, error, isPending } = await client.useSession(useFetch);
-    fetchStatus.value = isPending ? 'fetching' : 'idle';
+    fetchStatus.value = 'fetching';
+    const { data, error } = await client.useSession(useFetch);
     if (error.value) {
       fetchStatus.value = 'error';
       return;
@@ -41,11 +41,15 @@ const useAuthFetcher = (client: AuthClient) => {
     session,
     fetchSession,
     fetchStatus,
-    state: computed(() => ({
-      fetchStatus: fetchStatus.value,
-      user: user.value,
-      session: session.value,
-    })),
+    status: computed<'loading' | 'error' | 'success'>(() => {
+      if (fetchStatus.value === 'idle' || fetchStatus.value === 'fetching') {
+        return 'loading';
+      }
+      if (fetchStatus.value === 'error') {
+        return 'error';
+      }
+      return 'success';
+    }),
   }
 }
 export const useAuthStore = defineStore('auth', () => {
