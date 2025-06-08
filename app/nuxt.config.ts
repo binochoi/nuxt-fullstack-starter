@@ -16,6 +16,7 @@ export default defineNuxtConfig({
   ssr: true,
   routeRules: {
     '/*': {
+      ssr: false,
       prerender: true,
     },
   },
@@ -62,7 +63,7 @@ export default defineNuxtConfig({
     },
   },
   pinia: {
-    storesDirs: ['./app/stores/**'],
+    storesDirs: ['./src/store/**'],
   },
   alias: {
     'src': fileURLToPath(new URL('src', import.meta.url)),
@@ -107,6 +108,9 @@ export default defineNuxtConfig({
     minify: true,
     rollupConfig: {
       external: ['cloudflare:sockets', '@aws-sdk/client-s3'],
+    },
+    prerender: {
+      crawlLinks: true,
     },
     cloudflareDev: {
       configPath: './wrangler.toml',
