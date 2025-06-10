@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useAuthStore } from '~/store/Auth.store';
+import { useAuthStore } from '~/store/useAuthStore';
 
 const auth = useAuthStore();
 const login = (provider: 'google') => {
