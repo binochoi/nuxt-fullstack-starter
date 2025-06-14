@@ -123,7 +123,7 @@ export default defineNuxtConfig({
       compilerOptions: {
         strict: true,
         verbatimModuleSyntax: false,
-        moduleResolution: 'bundler',
+        moduleResolution: 'node',
       },
     },
   },
