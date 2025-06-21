@@ -2,8 +2,8 @@
     "scripts": {
         "dev": "pnpm --filter fullstack dev",
         "lint": "run-s lint.*",
-        "lint.only": "eslint \"**/*.{ts,vue}\"",
-        "lint.format": "npx prettier . --check"
+        "lint.only": "biome check .",
+        "lint.format": "biome format --write ."
     },
     "devDependencies": {
         "@biomejs/biome": "^1.9.4",
