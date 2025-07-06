@@ -104,7 +104,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   future: { compatibilityVersion: 4 },
   nitro: {
-    preset: 'cloudflare_module',
+    preset: 'cloudflare',
     minify: true,
     rollupConfig: {
       external: ['cloudflare:sockets', '@aws-sdk/client-s3'],
