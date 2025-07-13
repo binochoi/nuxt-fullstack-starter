@@ -68,6 +68,7 @@ export default defineNuxtConfig({
   alias: {
     'src': fileURLToPath(new URL('src', import.meta.url)),
     'server': fileURLToPath(new URL('server', import.meta.url)),
+    '.nuxt': fileURLToPath(new URL('.nuxt', import.meta.url)),
   },
   css: [
     'vue-final-modal/style.css',
@@ -126,6 +127,16 @@ export default defineNuxtConfig({
         moduleResolution: 'bundler',
       },
     },
+  },
+  hooks: {
+    'prepare:types'({ tsConfig }) {
+      const aliasesToRemoveFromAutocomplete = ['~~', '~~/*']
+      for (const alias of aliasesToRemoveFromAutocomplete) {
+        if (tsConfig.compilerOptions.paths[alias]) {
+          delete tsConfig.compilerOptions.paths[alias]
+        }
+      }
+    }
   },
   postcss: {
     plugins: {
