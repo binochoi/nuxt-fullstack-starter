@@ -9,7 +9,7 @@ export const useRPC = () => {
         baseURL: config.baseURL,
         onRequest: (params, fetcher) => {
             const { payload } = params;
-            if (payload.body) {
+            if (payload.body && (payload.body instanceof FormData) === false) {
                 payload.body = superjson.serialize(payload.body);
             }
             return fetcher({
