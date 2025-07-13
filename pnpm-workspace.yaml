@@ -1,6 +1,4 @@
 packages:
   - "app"
   - "app/server"
-  - "common"
-  - "microservices/*"
   - "packages/*"
