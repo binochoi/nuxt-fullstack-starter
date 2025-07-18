@@ -5,6 +5,7 @@
   "scripts": {
     "postinstall": "run-s prepare.*",
     "prepare.cp-env": "[ -f .dev.vars ] || cp .dev.vars.example .dev.vars",
+    "prepare.mkcert": "mkcert localhost",
     "prepare.nuxt": "dotenv -e .dev.vars -- nuxt prepare",
     "build": "run-s typecheck build.*",
     "build.only": "dotenv -e .dev.vars -- nuxt build",
