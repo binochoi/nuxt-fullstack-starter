@@ -52,7 +52,7 @@
     "primevue": "^4.3.6",
     "sass": "^1.89.2",
     "superjson": "^2.2.2",
-    "tailwindcss": "^4.1.11",
+    "tailwindcss": "^3",
     "tailwindcss-animate": "^1.0.7",
     "timeago.js": "^4.0.2",
     "vant": "^4.9.21",
