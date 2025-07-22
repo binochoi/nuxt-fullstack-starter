@@ -2,6 +2,9 @@
 
 import { type Config } from 'tailwindcss';
 import { generateColorPalette } from './src/utils/generateColorPalette';
+import tailwindcssAnimate from 'tailwindcss-animate';
+import tailwindcssContainerQueries from '@tailwindcss/container-queries';
+import tailwindcssTypography from '@tailwindcss/typography';
 
 export default {
     content: [
@@ -21,8 +24,8 @@ export default {
         },
     },
     plugins: [
-        require('tailwindcss-animate'),
-        require('@tailwindcss/container-queries'),
-        require('@tailwindcss/typography'),
+        tailwindcssAnimate,
+        tailwindcssContainerQueries,
+        tailwindcssTypography,
     ],
 } satisfies Config;
