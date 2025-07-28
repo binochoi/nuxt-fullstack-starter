@@ -7,7 +7,7 @@ import path from 'node:path';
 
 const moduleMjsPath = path.resolve(
   process.cwd(),
-  '../node_modules/@primevue/nuxt-module/dist/module.mjs'
+  'node_modules/@primevue/nuxt-module/dist/module.mjs'
 );
 
 let content = fs.readFileSync(moduleMjsPath, 'utf-8');
