@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "postinstall": "run-s prepare.*",
+    "prepare.primevue": "npx tsx scripts/primevue-support-nuxt-4.ts",
     "prepare.cp-env": "[ -f .dev.vars ] || cp .dev.vars.example .dev.vars",
     "prepare.mkcert": "mkcert localhost",
     "prepare.nuxt": "dotenv -e .dev.vars -- nuxt prepare",
