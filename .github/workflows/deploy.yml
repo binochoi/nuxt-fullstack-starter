@@ -51,7 +51,7 @@ jobs:
     
     - name: Setup environment variables
       run: |
-        cd admin
+        cd app
         export INFISICAL_TOKEN=${{ secrets.INFISICAL_TOKEN }}
         pnpm run infisical.prod.common
         pnpm run infisical.prod.local
