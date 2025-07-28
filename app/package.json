@@ -10,7 +10,7 @@
     "prepare.nuxt": "[ \"$CI\" = \"true\" ] || dotenv -- nuxt prepare",
     "prepare.infisical.dev.env": "[ \"$CI\" = \"true\" ] || dotenv -- printf \"INFISICAL_TOKEN=$BINOCORP_INFISICAL_TOKEN\n\" >> .env",
     "prepare.infisical.dev.local": "[ \"$CI\" = \"true\" ] || infisical export --env=dev --path=/nuxt-fullstack-starter >> .env",
-    "infisical.prod.common": "infisical export --env=dev --path=/ >> .env.prod",
+    "infisical.prod.common": "infisical export --env=prod --path=/ >> .env.prod",
     "infisical.prod.local": "infisical export --env=prod --path=/nuxt-fullstack-starter >> .env.prod",
     "build": "run-s typecheck build.*",
     "build.only": "dotenv -- nuxt build",
