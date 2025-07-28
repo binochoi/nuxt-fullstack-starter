@@ -59,7 +59,7 @@ jobs:
     
     - name: Build and Deploy
       run: |
-        cd admin
+        cd app
         pnpm run deploy
     
     - name: Send Telegram notification
