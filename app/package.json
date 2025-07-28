@@ -63,6 +63,7 @@
   },
   "devDependencies": {
     "@primevue/nuxt-module": "^4.3.6",
+    "@types/node": "^24.1.0",
     "dotenv-cli": "^8.0.0",
     "drizzle-kit": "~0.31.4",
     "env-cmd": "^10.1.0",
