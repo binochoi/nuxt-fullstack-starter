@@ -1,0 +1,91 @@
+name: Deploy to Cloudflare Workers
+
+on:
+  push:
+    branches: [
+      main,
+      develop,
+      nightly
+    ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+    
+    - name: Install pnpm
+      uses: pnpm/action-setup@v4
+      with:
+        version: 10.7.0
+        run_install: false
+    
+    - name: Get pnpm store directory
+      shell: bash
+      run: |
+        echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+    
+    - name: Setup pnpm cache
+      uses: actions/cache@v4
+      with:
+        path: .pnpm-store
+        key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+        restore-keys: |
+          ${{ runner.os }}-pnpm-store-
+    
+    - name: Install Infisical CLI
+      run: |
+        npm install -g @infisical/cli
+
+    - name: Install dependencies
+      run: pnpm install
+      env:
+        CI: true
+    
+    - name: Setup environment variables
+      run: |
+        cd admin
+        export INFISICAL_TOKEN=${{ secrets.INFISICAL_TOKEN }}
+        pnpm run infisical.prod.common
+        pnpm run infisical.prod.local
+      env:
+        INFISICAL_TOKEN: ${{ secrets.INFISICAL_TOKEN }}
+    
+    - name: Build and Deploy
+      run: |
+        cd admin
+        pnpm run deploy
+      env:
+        CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+    
+    - name: Send Telegram notification
+      if: always()
+      run: |
+        if [ "${{ job.status }}" == "success" ]; then
+          STATUS="성공했어요 ✅"
+        else
+          STATUS="실패했어요 ❌"
+        fi
+        
+        MESSAGE="
+        <b>conit에서 Github Actions가 ${STATUS}</b>
+        (https://github.com/binochoi/conit.io/actions)[링크]
+        
+        <b>Repository:</b> ${{ github.repository }}
+        <b>Branch:</b> ${{ github.ref_name }}
+        <b>Commit:</b> ${{ github.sha }}
+        <b>Commit Message:</b> ${{ github.event.head_commit.message }}
+        <b>Author:</b> ${{ github.actor }}
+        "
+        
+        curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_API_KEY }}/sendMessage" \
+          -d "chat_id=6307565636" \
+          -d "parse_mode=HTML" \
+          -d "text=${MESSAGE}"
