@@ -116,6 +116,13 @@ export default defineNuxtConfig({
     cloudflareDev: {
       configPath: './wrangler.toml',
     },
+    cloudflare: {
+      wrangler: {
+        observability: {
+          enabled: true,
+        },
+      },
+    },
     logLevel: 4,
     modules: [rpc()],
   },
