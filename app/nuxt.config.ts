@@ -120,6 +120,9 @@ export default defineNuxtConfig({
       wrangler: {
         observability: {
           enabled: true,
+          logs: {
+            enabled: true,
+          }
         },
       },
     },
