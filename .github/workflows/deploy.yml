@@ -49,17 +49,12 @@ jobs:
       env:
         CI: true
     
-    - name: Setup environment variables
-      run: |
-        cd app
-        pnpm prod.env
-      env:
-        INFISICAL_TOKEN: ${{ secrets.INFISICAL_TOKEN }}
-    
     - name: Build and Deploy
       run: |
         cd app
         pnpm run deploy
+      env:
+        INFISICAL_TOKEN: ${{ secrets.INFISICAL_TOKEN }}
     
     - name: Report
       if: always()
