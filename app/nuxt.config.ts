@@ -72,7 +72,7 @@ export default defineNuxtConfig({
   },
   css: [
     'vue-final-modal/style.css',
-    'src/assets/styles/main.scss',
+    './src/assets/styles/main.scss',
   ],
   devServer: {
     port: Number(config.port),
