@@ -1,5 +1,5 @@
 import { EventHandler, H3Event } from "h3";
-import { Auth } from '~~/server/providers/auth.provider'
+import { Auth } from 'server/providers/auth.provider'
 
 /**
  * Middleware used to require authentication for a route.

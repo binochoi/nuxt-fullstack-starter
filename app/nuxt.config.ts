@@ -66,7 +66,7 @@ export default defineNuxtConfig({
     storesDirs: ['./src/store/**'],
   },
   alias: {
-    'src': fileURLToPath(new URL('src', import.meta.url)),
+    'app': fileURLToPath(new URL('src', import.meta.url)),
     'server': fileURLToPath(new URL('server', import.meta.url)),
     '.nuxt': fileURLToPath(new URL('.nuxt', import.meta.url)),
   },
@@ -140,9 +140,9 @@ export default defineNuxtConfig({
   },
   hooks: {
     'prepare:types'({ tsConfig }) {
-      const aliasesToRemoveFromAutocomplete = ['~~', '~~/*', '@@', '@@/*']
+      const aliasesToRemoveFromAutocomplete = ['src', 'src/*', '~', '~/*', '~~', '~~/*', '@', '@/*', '@@', '@@/*']
       for (const alias of aliasesToRemoveFromAutocomplete) {
-        if (tsConfig.compilerOptions.paths[alias]) {
+        if (tsConfig.compilerOptions?.paths[alias]) {
           delete tsConfig.compilerOptions.paths[alias]
         }
       }
