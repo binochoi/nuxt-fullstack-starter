@@ -61,27 +61,12 @@ jobs:
         cd app
         pnpm run deploy
     
-    - name: Send Telegram notification
+    - name: Report
       if: always()
       run: |
-        if [ "${{ job.status }}" == "success" ]; then
-          STATUS="성공했어요 ✅"
-        else
-          STATUS="실패했어요 ❌"
-        fi
-        
-        MESSAGE="
-        <b>conit에서 Github Actions가 ${STATUS}</b>
-        (https://github.com/binochoi/conit.io/actions)[링크]
-        
-        <b>Repository:</b> ${{ github.repository }}
-        <b>Branch:</b> ${{ github.ref_name }}
-        <b>Commit:</b> ${{ github.sha }}
-        <b>Commit Message:</b> ${{ github.event.head_commit.message }}
-        <b>Author:</b> ${{ github.actor }}
-        "
-        
-        curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_API_KEY }}/sendMessage" \
-          -d "chat_id=6307565636" \
-          -d "parse_mode=HTML" \
-          -d "text=${MESSAGE}"
+        curl -X POST https://api.bino.blog/enterprise/notifications/github-actions \
+          -H "Content-Type: application/json" \
+          -d '{
+            "github": ${{ toJSON(github) }},
+            "status": "${{ job.status }}"
+          }'
