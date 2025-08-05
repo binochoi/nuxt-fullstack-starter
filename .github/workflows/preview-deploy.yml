@@ -70,9 +70,7 @@ jobs:
     - name: Get deployed URL
       id: get-url
       run: |
-        DEPLOYED_URL="https://$WORKER_NAME.bino-blog.workers.dev"
-        echo "url=$DEPLOYED_URL" >> $GITHUB_OUTPUT
-        echo "Deployed to: $DEPLOYED_URL"
+        echo "https://$WORKER_NAME.bonoself.workers.dev" >> $GITHUB_OUTPUT
     
     - name: Update GitHub Status
       run: |
@@ -95,8 +93,5 @@ jobs:
           -d '{
             "github": ${{ toJSON(github) }},
             "status": "${{ job.status }}",
-            "preview": {
-              "url": "${{ steps.get-url.outputs.url }}",
-              "branch": "${{ env.PREVIEW_NAME }}"
-            }
+            "preview": "${{ steps.get-url.outputs.url }}"
           }'
