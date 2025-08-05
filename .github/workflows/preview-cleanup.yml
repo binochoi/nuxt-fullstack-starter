@@ -51,7 +51,7 @@ jobs:
         pnpm run prod.env
         
         # Delete the worker
-        npx dotenv-cli -e .env.prod -- wrangler delete $WORKER_NAME --force || echo "Worker $WORKER_NAME not found or already deleted"
+        npx dotenv-cli -e .env.prod -- wrangler delete --name $WORKER_NAME --force || echo "Worker $WORKER_NAME not found or already deleted"
       env:
         INFISICAL_TOKEN: ${{ secrets.INFISICAL_TOKEN }}
     
