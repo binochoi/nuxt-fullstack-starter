@@ -1,0 +1,102 @@
+name: Deploy Preview to Cloudflare Workers
+
+on:
+  push:
+    branches:
+      - 'preview/**'
+  workflow_dispatch:
+
+jobs:
+  deploy-preview:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+    
+    - name: Install pnpm
+      uses: pnpm/action-setup@v4
+      with:
+        version: 10.7.0
+        run_install: false
+    
+    - name: Get pnpm store directory
+      shell: bash
+      run: |
+        echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+    
+    - name: Setup pnpm cache
+      uses: actions/cache@v4
+      with:
+        path: .pnpm-store
+        key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+        restore-keys: |
+          ${{ runner.os }}-pnpm-store-
+    
+    - name: Install Infisical CLI
+      run: |
+        npm install -g @infisical/cli
+
+    - name: Install dependencies
+      run: pnpm install
+      env:
+        CI: true
+    
+    - name: Extract branch name
+      shell: bash
+      run: |
+        branch_name=${GITHUB_REF_NAME#preview/}
+        echo "PREVIEW_NAME=$branch_name" >> $GITHUB_ENV
+        echo "WORKER_NAME=nuxt-fullstack-starter-preview-$branch_name" >> $GITHUB_ENV
+    
+    - name: Build and Deploy Preview
+      run: |
+        cd app
+        
+        # Update wrangler.toml with preview worker name
+        sed -i "s/name = \"nuxt-fullstack-starter\"/name = \"$WORKER_NAME\"/" wrangler.toml
+        
+        # Build and deploy
+        pnpm run prod.env
+        dotenv -e .env.prod -- nuxt build
+        dotenv -e .env.prod -- wrangler deploy
+      env:
+        INFISICAL_TOKEN: ${{ secrets.INFISICAL_TOKEN }}
+    
+    - name: Get deployed URL
+      id: get-url
+      run: |
+        DEPLOYED_URL="https://$WORKER_NAME.bino-blog.workers.dev"
+        echo "url=$DEPLOYED_URL" >> $GITHUB_OUTPUT
+        echo "Deployed to: $DEPLOYED_URL"
+    
+    - name: Update GitHub Status
+      run: |
+        curl -X POST \
+          -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          -H "Accept: application/vnd.github.v3+json" \
+          https://api.github.com/repos/${{ github.repository }}/statuses/${{ github.sha }} \
+          -d '{
+            "state": "success",
+            "target_url": "${{ steps.get-url.outputs.url }}",
+            "description": "Preview deployment successful",
+            "context": "preview"
+          }'
+    
+    - name: Report
+      if: always()
+      run: |
+        curl -X POST https://api.bino.blog/enterprise/notifications/github-actions \
+          -H "Content-Type: application/json" \
+          -d '{
+            "github": ${{ toJSON(github) }},
+            "status": "${{ job.status }}",
+            "preview": {
+              "url": "${{ steps.get-url.outputs.url }}",
+              "branch": "${{ env.PREVIEW_NAME }}"
+            }
+          }'
