@@ -67,11 +67,6 @@ jobs:
       env:
         INFISICAL_TOKEN: ${{ secrets.INFISICAL_TOKEN }}
     
-    - name: Get deployed URL
-      id: get-url
-      run: |
-        echo "url=https://$WORKER_NAME.bonoself.workers.dev" >> $GITHUB_OUTPUT
-    
     - name: Update GitHub Status
       run: |
         curl -X POST \
@@ -93,5 +88,5 @@ jobs:
           -d '{
             "github": ${{ toJSON(github) }},
             "status": "${{ job.status }}",
-            "preview": "${{ steps.get-url.outputs.url }}"
+            "preview": "https://${{ env.WORKER_NAME }}.bonoself.workers.dev"
           }'
