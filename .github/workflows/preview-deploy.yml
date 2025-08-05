@@ -70,7 +70,7 @@ jobs:
     - name: Get deployed URL
       id: get-url
       run: |
-        echo "https://$WORKER_NAME.bonoself.workers.dev" >> $GITHUB_OUTPUT
+        echo "url=https://$WORKER_NAME.bonoself.workers.dev" >> $GITHUB_OUTPUT
     
     - name: Update GitHub Status
       run: |
