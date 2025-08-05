@@ -2,13 +2,14 @@ name: Cleanup Preview Deployment
 
 on:
   delete:
+  workflow_dispatch:
 
 jobs:
   cleanup-preview:
     runs-on: ubuntu-latest
-    if: |
-      github.event.ref_type == 'branch' && 
-      startsWith(github.event.ref, 'preview/')
+    # if: |
+    #   github.event.ref_type == 'branch' && 
+    #   startsWith(github.event.ref, 'preview/')
     
     
     steps:
