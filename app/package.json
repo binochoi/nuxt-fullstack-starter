@@ -11,7 +11,7 @@
     "prepare.env.dev": "[ \"$CI\" = \"true\" ] || dotenv -- printf \"INFISICAL_TOKEN=$BINOCORP_INFISICAL_TOKEN\n\" >> .env",
     "prepare.env.local": "[ \"$CI\" = \"true\" ] || infisical export --env=dev --path=/nuxt-fullstack-starter >> .env",
     "prod.env": "run-s prod.env.*",
-    "prod.env.cp": "rimraf .env && cp .env.example .env",
+    "prod.env.cp": "rimraf .env && cp .env.prod .env.example",
     "prod.env.common": "infisical export --env=prod --path=/ >> .env.prod",
     "prod.env.local": "infisical export --env=prod --path=/nuxt-fullstack-starter >> .env.prod",
     "dev": "run-p typecheck dev.only",
