@@ -62,8 +62,8 @@ jobs:
         
         # Build and deploy
         pnpm run prod.env
-        dotenv -e .env.prod -- nuxt build
-        dotenv -e .env.prod -- wrangler deploy
+        npx dotenv-cli -e .env.prod -- nuxt build
+        npx dotenv-cli -e .env.prod -- wrangler deploy
       env:
         INFISICAL_TOKEN: ${{ secrets.INFISICAL_TOKEN }}
     
