@@ -157,8 +157,8 @@ importers:
         specifier: ^0.2.2
         version: 0.2.2
       nitro-rpc-definition:
-        specifier: ^0.1.8
-        version: 0.1.8(api-to-rpc@0.1.1(ofetch@1.4.1))(defu@6.1.4)(nitropack@2.12.4(@netlify/blobs@10.0.6)(better-sqlite3@12.2.0)(drizzle-orm@0.44.3(@prisma/client@6.12.0(typescript@5.8.3))(@types/better-sqlite3@7.6.13)(better-sqlite3@12.2.0)(gel@2.1.1)(kysely@0.28.3)(postgres@3.4.7)))(ofetch@1.4.1)
+        specifier: ^0.1.9
+        version: 0.1.9(api-to-rpc@0.1.1(ofetch@1.4.1))(defu@6.1.4)(nitropack@2.12.4(@netlify/blobs@10.0.6)(better-sqlite3@12.2.0)(drizzle-orm@0.44.3(@prisma/client@6.12.0(typescript@5.8.3))(@types/better-sqlite3@7.6.13)(better-sqlite3@12.2.0)(gel@2.1.1)(kysely@0.28.3)(postgres@3.4.7)))(ofetch@1.4.1)
       nitropack:
         specifier: latest
         version: 2.12.4(@netlify/blobs@10.0.6)(better-sqlite3@12.2.0)(drizzle-orm@0.44.3(@prisma/client@6.12.0(typescript@5.8.3))(@types/better-sqlite3@7.6.13)(better-sqlite3@12.2.0)(gel@2.1.1)(kysely@0.28.3)(postgres@3.4.7))
@@ -4520,6 +4520,14 @@ packages:
 
   nitro-rpc-definition@0.1.8:
     resolution: {integrity: sha512-RZkNsHcgXNu2A6Of8IPnxGxcl1pbblq1iXhghYfC96zgftJ1HmP1pE7dQebllKTJ0FzM984Hb5tkPdiXseZvfw==}
+    peerDependencies:
+      api-to-rpc: latest
+      defu: ^6.1.4
+      nitropack: ^2.11.6
+      ofetch: ^1.4.1
+
+  nitro-rpc-definition@0.1.9:
+    resolution: {integrity: sha512-72geBpxu27DE7S2xqZUw6G+/uiRqjgpR11+LV3T9lO86gXxHiKenPuUDTh3LW6JI64NuAejdBUs+gRydiFLhaA==}
     peerDependencies:
       api-to-rpc: latest
       defu: ^6.1.4
@@ -10710,6 +10718,13 @@ snapshots:
       pkg-types: 2.2.0
 
   nitro-rpc-definition@0.1.8(api-to-rpc@0.1.1(ofetch@1.4.1))(defu@6.1.4)(nitropack@2.12.4(@netlify/blobs@10.0.6)(better-sqlite3@12.2.0)(drizzle-orm@0.44.3(@prisma/client@6.12.0(typescript@5.8.3))(@types/better-sqlite3@7.6.13)(better-sqlite3@12.2.0)(gel@2.1.1)(kysely@0.28.3)(postgres@3.4.7)))(ofetch@1.4.1):
+    dependencies:
+      api-to-rpc: 0.1.1(ofetch@1.4.1)
+      defu: 6.1.4
+      nitropack: 2.12.4(@netlify/blobs@10.0.6)(better-sqlite3@12.2.0)(drizzle-orm@0.44.3(@prisma/client@6.12.0(typescript@5.8.3))(@types/better-sqlite3@7.6.13)(better-sqlite3@12.2.0)(gel@2.1.1)(kysely@0.28.3)(postgres@3.4.7))
+      ofetch: 1.4.1
+
+  nitro-rpc-definition@0.1.9(api-to-rpc@0.1.1(ofetch@1.4.1))(defu@6.1.4)(nitropack@2.12.4(@netlify/blobs@10.0.6)(better-sqlite3@12.2.0)(drizzle-orm@0.44.3(@prisma/client@6.12.0(typescript@5.8.3))(@types/better-sqlite3@7.6.13)(better-sqlite3@12.2.0)(gel@2.1.1)(kysely@0.28.3)(postgres@3.4.7)))(ofetch@1.4.1):
     dependencies:
       api-to-rpc: 0.1.1(ofetch@1.4.1)
       defu: 6.1.4

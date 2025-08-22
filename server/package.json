@@ -39,7 +39,7 @@
     "better-auth": "^1.3.2",
     "drizzle-orm": "^0.44.3",
     "nitro-cloudflare-dev": "^0.2.2",
-    "nitro-rpc-definition": "^0.1.8",
+    "nitro-rpc-definition": "^0.1.9",
     "postgres": "^3.4.7",
     "superjson": "^2.2.2",
     "nitropack": "latest"
