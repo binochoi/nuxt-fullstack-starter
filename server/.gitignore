@@ -1,3 +1,6 @@
 .nitro
 .env
 .env.prod
+.output
+.wrangler
+localhost*.pem

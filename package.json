@@ -1,8 +1,8 @@
 {
     "scripts": {
         "dev": "run-p dev.*",
+        "dev.server": "pnpm --filter server run prepare.nitro",
         "dev.app": "pnpm --filter app run dev",
-        "__dev.monolithic": "pnpm --filter server run dev",
         "lint": "run-s lint.*",
         "lint.only": "biome check .",
         "lint.format": "biome format --write ."
