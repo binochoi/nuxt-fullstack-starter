@@ -1,0 +1,29 @@
+{
+  "date": "2025-08-22T09:35:53.680Z",
+  "preset": "cloudflare-module",
+  "framework": {
+    "name": "nitro",
+    "version": ""
+  },
+  "versions": {
+    "nitro": "2.12.4"
+  },
+  "commands": {
+    "preview": "npx wrangler --cwd . dev",
+    "deploy": "npx wrangler --cwd . deploy"
+  },
+  "config": {
+    "cloudflare": {
+      "deployConfig": true,
+      "wrangler": {
+        "observability": {
+          "enabled": true,
+          "logs": {
+            "enabled": true
+          }
+        }
+      },
+      "nodeCompat": true
+    }
+  }
+}

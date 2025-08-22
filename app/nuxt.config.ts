@@ -1,4 +1,4 @@
-import { useBuildtimeConfig } from './server/config';
+import { useBuildtimeConfig } from '../server/src/config';
 import { fileURLToPath } from 'node:url';
 import rpc from 'nitro-rpc-definition';
 import { definePreset } from '@primeuix/themes';
@@ -67,7 +67,8 @@ export default defineNuxtConfig({
   },
   alias: {
     'app': fileURLToPath(new URL('src', import.meta.url)),
-    'server': fileURLToPath(new URL('server', import.meta.url)),
+    'server': fileURLToPath(new URL('../server/src', import.meta.url)),
+    'server/.nitro': fileURLToPath(new URL('../server/.nitro', import.meta.url)),
     '.nuxt': fileURLToPath(new URL('.nuxt', import.meta.url)),
   },
   css: [

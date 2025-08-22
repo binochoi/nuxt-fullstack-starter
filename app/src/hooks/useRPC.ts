@@ -1,7 +1,6 @@
 import rpc from 'api-to-rpc';
 import superjson from 'superjson';
-/** @ts-ignore */
-import type { API } from '.nuxt/.rpc-definition';
+import type { API } from 'server/.nitro/.rpc-definition';
 import { isSuperJSON } from 'server/utils/isSuperJSON';
 export const useRPC = () => {
     const config = useRuntimeConfig();
