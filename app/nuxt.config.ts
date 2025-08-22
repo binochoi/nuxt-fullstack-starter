@@ -98,7 +98,7 @@ export default defineNuxtConfig({
     },
   },
   srcDir: "src/",
-  serverDir: "server/",
+  serverDir: "../server/src",
   experimental: {
     typedPages: true,
   },
