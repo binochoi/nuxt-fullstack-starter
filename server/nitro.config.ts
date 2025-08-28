@@ -45,7 +45,7 @@ export default defineNitroConfig({
     }
   },
 
-  openAPI: {
+  openAPI: config.isDev ? {
     meta: {
       title: 'My Awesome Project',
       description: 'This might become the next big thing.',
@@ -59,7 +59,7 @@ export default defineNitroConfig({
       },
       swagger: false,
     },
-  },
+  } : undefined,
   logLevel: 4,
   hooks: {
     "types:extend"({ tsConfig }) {
@@ -72,7 +72,6 @@ export default defineNitroConfig({
     }
   },
   experimental: {
-    asyncContext: true,
     openAPI: true,
     tasks: true,
   },
