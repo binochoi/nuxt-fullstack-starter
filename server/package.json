@@ -25,7 +25,7 @@
     "preview.only.raw": "wrangler dev --port=$PORT --https-key-path=./localhost-key.pem --https-cert-path=./localhost.pem --local-protocol https",
     "db:generate": "run-s db:generate.*",
     "db:generate.rm": "rimraf .cache/.migrations",
-    "db:generate.better-auth": "dotenv -- npx @better-auth/cli generate --config ./server/auth.generator.ts --output ./server/database/schema/better-auth.schema.ts -y",
+    "db:generate.better-auth": "dotenv -- npx @better-auth/cli generate --config ./src/auth.generator.ts --output ./src/database/schema/better-auth.schema.ts -y",
     "db:generate.drizzle": "dotenv -- drizzle-kit generate --config=./drizzle.config.ts",
     "db:migrate": "run-s db:generate db:migrate.*",
     "db:migrate.only": "dotenv -- drizzle-kit migrate --config=./drizzle.config.ts",

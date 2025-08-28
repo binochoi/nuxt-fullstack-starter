@@ -1,9 +1,9 @@
 import { defineConfig } from 'drizzle-kit';
-import { useBuildtimeConfig } from './server/config';
+import { useBuildtimeConfig } from './src/config';
 
 export default defineConfig({
   dialect: 'postgresql',
-  schema: './server/database/schema',
+  schema: './src/database/schema',
   out: './.cache/.migrations',
   breakpoints: true,
   dbCredentials: {
