@@ -1,5 +1,5 @@
 packages:
   - "app"
   - "server"
-  - "server/layers"
+  - "server/layers/*"
   - "packages/*"
