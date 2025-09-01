@@ -1,0 +1,7 @@
+{
+    "name": "@vibear-layer/template",
+    "dependencies": {
+        "nitro-extends-routing": "^0.0.2",
+        "nitropack": "latest"
+    }
+}
