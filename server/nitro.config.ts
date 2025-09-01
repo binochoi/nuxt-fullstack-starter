@@ -30,9 +30,7 @@ export default defineNitroConfig({
   alias: {
     server: fileURLToPath(new URL("./src", import.meta.url)),
   },
-  extends: {
-
-  },
+  extends: [],
   cloudflare: {
     deployConfig: true,
     wrangler: {
