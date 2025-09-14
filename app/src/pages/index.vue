@@ -11,13 +11,14 @@ const auth = useAuthStore();
     <div>
       health status: {{ data }}
     </div>
-    <div v-if="auth.status === 'loading'">
+    <div v-if="auth.status === 'pending'">
       auth loading...
     </div>
     <div v-else-if="auth.status === 'error'">
       auth error !
     </div>
-    <div v-else>
+    <div v-else></div>
+    <div>
       <div v-if="auth.user">
         {{ auth.user.name }} 로 로그인
         <PrimeButton @click="auth.signOut()">

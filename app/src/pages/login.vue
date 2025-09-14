@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { useAuthStore } from 'app/store/useAuthStore';
-
 const auth = useAuthStore();
 const form = reactive({
   email: '',
   password: '',
 });
 const login = () => {
-  return auth.client.signIn.email(form);
+  return auth.client.signIn.social({
+    provider: 'google',
+  })
 }
 </script>
 <template>

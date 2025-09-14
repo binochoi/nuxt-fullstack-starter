@@ -37,6 +37,9 @@ export default defineNuxtConfig({
     ],
     autoImport: true,
   },
+  extends: [
+    './src/layers/auth',
+  ],
   modules: [
     '@nuxtjs/tailwindcss',
     '@pinia/nuxt',
