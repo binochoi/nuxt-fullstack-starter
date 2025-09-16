@@ -31,12 +31,13 @@ export default defineNuxtConfig({
   },
   imports: {
     dirs: [
-      './types/*.d.ts',
+      './types',
       './layers',
       './hooks',
       './utils',
     ],
     autoImport: true,
+    global: true,
   },
   extends: [
     './src/layers/auth',
