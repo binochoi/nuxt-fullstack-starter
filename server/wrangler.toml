@@ -1,0 +1,7 @@
+name = "nuxt-fullstack-starter"
+main = "./.output/server/index.mjs"
+workers_dev = true
+compatibility_date = "2025-01-20"
+rules = [{ type = "ESModule", globs = ["**/*.js"] }]
+compatibility_flags = ["nodejs_compat_v2"]
+assets = { directory = "./.output/public/", binding = "ASSETS" }

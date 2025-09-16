@@ -12,7 +12,23 @@ export default defineNitroConfig({
   preset: 'cloudflare_module',
   minify: true,
   rollupConfig: {
-    external: ['cloudflare:sockets', 'wrangler'],
+    external: ['cloudflare:sockets', '@aws-sdk/client-s3', 'wrangler'],
+  },
+  prerender: {
+    crawlLinks: true,
+  },
+  cloudflareDev: {
+    configPath: './wrangler.toml',
+  },
+  cloudflare: {
+    wrangler: {
+      observability: {
+        enabled: true,
+        logs: {
+          enabled: true,
+        }
+      },
+    },
   },
   typescript: {
     tsConfig: {
@@ -31,18 +47,6 @@ export default defineNitroConfig({
     server: fileURLToPath(new URL("./src", import.meta.url)),
   },
   extends: [],
-  cloudflare: {
-    deployConfig: true,
-    wrangler: {
-      observability: {
-        enabled: true,
-        logs: {
-          enabled: true,
-        }
-      }
-    }
-  },
-
   openAPI: config.isDev ? {
     meta: {
       title: 'My Awesome Project',
