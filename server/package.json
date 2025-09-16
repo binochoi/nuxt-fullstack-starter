@@ -22,7 +22,7 @@
     "dev.only": "dotenv -- nitro dev --port=$PORT --https --https.cert ./localhost.pem --https.key ./localhost-key.pem",
     "build": "run-s typecheck build.*",
     "build.only": "dotenv -- nitro build",
-    "typecheck": "run-s prepare.nitro typecheck.only",
+    "typecheck": "run-s prepare.dev.nitro typecheck.only",
     "typecheck.only": "dotenv -- npx tsc --noEmit",
     "preview": "run-s preview.*",
     "preview.build": "dotenv -v ENV=preview -- nitro build",
