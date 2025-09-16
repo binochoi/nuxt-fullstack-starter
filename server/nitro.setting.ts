@@ -17,9 +17,9 @@ export default {
   prerender: {
     crawlLinks: true,
   },
-  cloudflareDev: {
-    configPath: './wrangler.toml',
-  },
+  // cloudflareDev: {
+  //   configPath: './wrangler.toml',
+  // },
   cloudflare: {
     wrangler: {
       observability: {
