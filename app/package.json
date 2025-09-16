@@ -22,7 +22,7 @@
     "dev.only": "dotenv -- nuxt dev",
     "build": "run-s typecheck build.*",
     "build.only": "dotenv -- nuxt build",
-    "typecheck": "run-s prepare.nuxt typecheck.only",
+    "typecheck": "run-s typecheck.only",
     "typecheck.only": "dotenv -- nuxt typecheck --cwd=src --logLevel=info",
     "generate": "nuxt generate",
     "preview": "run-s preview.*",

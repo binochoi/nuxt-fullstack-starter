@@ -4,6 +4,7 @@ import rpc from 'nitro-rpc-definition';
 import { definePreset } from '@primeuix/themes';
 import AuraTheme from '@primeuix/themes/aura';
 import { generateColorPalette } from './src/utils/generateColorPalette';
+import nitroConfig from 'server/nitro.setting'
 
 const primePreset = definePreset(AuraTheme, {
   semantic: {
@@ -72,6 +73,7 @@ export default defineNuxtConfig({
     'app': fileURLToPath(new URL('src', import.meta.url)),
     'server': fileURLToPath(new URL('../server/src', import.meta.url)),
     'server/.nitro': fileURLToPath(new URL('../server/.nitro', import.meta.url)),
+    'server/nitro.setting': fileURLToPath(new URL('../server/nitro.setting.ts', import.meta.url)),
     '.nuxt': fileURLToPath(new URL('.nuxt', import.meta.url)),
   },
   css: [
@@ -108,31 +110,7 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-02-16",
   devtools: { enabled: true },
   future: { compatibilityVersion: 4 },
-  nitro: {
-    preset: 'cloudflare_module',
-    minify: true,
-    rollupConfig: {
-      external: ['cloudflare:sockets', '@aws-sdk/client-s3'],
-    },
-    prerender: {
-      crawlLinks: true,
-    },
-    cloudflareDev: {
-      configPath: './wrangler.toml',
-    },
-    cloudflare: {
-      wrangler: {
-        observability: {
-          enabled: true,
-          logs: {
-            enabled: true,
-          }
-        },
-      },
-    },
-    logLevel: 4,
-    modules: [rpc()],
-  },
+  nitro: nitroConfig,
   typescript: {
     tsConfig: {
       compilerOptions: {
