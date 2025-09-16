@@ -15,7 +15,7 @@
     "prepare.dev.env.local": "dotenv -- infisical export --env=dev --path=/nuxt-fullstack-starter >> .env",
     "prepare.dev.mkcert": "mkcert localhost",
     "prepare.dev.nuxt": "dotenv -- nuxt prepare",
-    "prepare.prod": "run-s prod.env.*",
+    "prepare.prod": "run-s prepare.prod.*",
     "prepare.prod.env.common": "dotenv -- infisical export --env=prod --path=/ >> .env.prod",
     "prepare.prod.env.local": "dotenv -- infisical export --env=prod --path=/nuxt-fullstack-starter >> .env.prod",
     "dev": "run-p typecheck dev.only",
@@ -29,7 +29,7 @@
     "preview.build": "dotenv -v ENV=preview -- nuxt build",
     "preview.only": "dotenv -- pnpm preview.only.raw",
     "preview.only.raw": "wrangler dev --port=$PORT --https-key-path=./localhost-key.pem --https-cert-path=./localhost.pem --local-protocol https",
-    "deploy": "run-s prod.env deploy.*",
+    "deploy": "run-s prepare.prod deploy.*",
     "deploy.build": "dotenv -e .env.prod -- nuxt build",
     "deploy.only": "dotenv -e .env.prod -- wrangler deploy"
   },
