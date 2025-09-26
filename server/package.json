@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "prepare": "run-s prepare.dev.nitro",
     "__ONLY__STAND_ALONE__::prepare": "run-s prepare.before; if-env NODE_ENV=prod && run-s prepare.prod || run-s prepare.dev; run-s prepare.after",
     "prepare.before": "dotenv -- run-s prepare.before.*",
     "prepare.before.cp-env": "rimraf .env; cp .env.example .env; cp .env.example .env.prod",
@@ -13,7 +14,6 @@
     "prepare.dev.env.common": "dotenv -- infisical export --env=dev --path=/ >> .env",
     "prepare.dev.env.local": "dotenv -- infisical export --env=dev --path=/nuxt-fullstack-starter >> .env",
     "prepare.dev.mkcert": "mkcert localhost",
-    "prepare.dev.nuxt": "dotenv -- nuxt prepare",
     "prepare.dev.nitro": "dotenv -- nitro prepare",
     "prepare.prod": "run-s prod.env.*",
     "prepare.prod.env.common": "dotenv -- infisical export --env=prod --path=/ >> .env.prod",

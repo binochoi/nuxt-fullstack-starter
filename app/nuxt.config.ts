@@ -72,10 +72,10 @@ export default defineNuxtConfig({
   },
   alias: {
     'app': fileURLToPath(new URL('src', import.meta.url)),
+    '.nuxt': fileURLToPath(new URL('.nuxt', import.meta.url)),
     'server': fileURLToPath(new URL('../server/src', import.meta.url)),
     'server/.nitro': fileURLToPath(new URL('../server/.nitro', import.meta.url)),
     'server/nitro.setting': fileURLToPath(new URL('../server/nitro.setting.ts', import.meta.url)),
-    '.nuxt': fileURLToPath(new URL('.nuxt', import.meta.url)),
   },
   css: [
     'vue-final-modal/style.css',
