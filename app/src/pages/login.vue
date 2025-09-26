@@ -12,7 +12,7 @@ const login = () => {
 </script>
 <template>
   <div>
-    <van-nav-bar title="로그인" left-text="Back" left-arrow @click-left="$router.back()" />
+    <!-- <van-nav-bar title="로그인" left-text="Back" left-arrow @click-left="$router.back()" /> -->
     <div class="flex flex-col items-center justify-center h-screen gap-4">
       <form @submit.prevent="login" class="flex flex-col gap-2">
         <PrimeInputText v-model="form.email" />
