@@ -111,7 +111,19 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-02-16",
   devtools: { enabled: true },
   future: { compatibilityVersion: 4 },
-  nitro: nitroConfig,
+  nitro: {
+    ...nitroConfig,
+    rollupConfig: {
+      output: {
+        /**
+         * server 코드를 단 하나로 merge함.
+         * 대부분의 경우 server 코드는 tree shaking이 불필요하고,
+         * 특히 vibear에서 user workers로 활용하기 위해서는 서버 코드가 분산되어 있지 않아야 함
+         */
+        inlineDynamicImports: true,
+      }
+    }
+  },
   typescript: {
     tsConfig: {
       compilerOptions: {
