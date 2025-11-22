@@ -8,7 +8,7 @@ import tailwindcssTypography from '@tailwindcss/typography';
 
 export default {
     content: [
-        './**/*.{vue,ts}',
+        './src/**/*.{vue,ts}',
     ],
     future: {
         hoverOnlyWhenSupported: true,
